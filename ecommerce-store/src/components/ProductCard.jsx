@@ -1,20 +1,28 @@
-
 import "./ProductCard.css";
 
-function ProductCard(props) {
+function ProductCard({
+  id,
+  name,
+  price,
+  rating,
+  quantity,
+  increaseQuantity,
+}) {
   return (
     <div className="product-card">
+      <h2>{name}</h2>
 
-      <h2>{props.name}</h2>
-
-      <p className="rating">
-        ⭐⭐⭐⭐⭐ ({props.rating})
+      <p>
+        <strong>Price:</strong> {price}
       </p>
 
-      <h3>{props.price}</h3>
+      <p className="rating">⭐ {rating}</p>
 
-      <button>Add to Cart</button>
+      <div className="quantity-box">
+        <button onClick={() => increaseQuantity(id)}>+</button>
 
+        <span>{quantity}</span>
+      </div>
     </div>
   );
 }
